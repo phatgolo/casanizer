@@ -2,11 +2,8 @@ var gulp = require("gulp");
 var runSeq = require("run-sequence");
 var fs = require("fs");
 var changelog = require("conventional-changelog");
-
 var bump = require("gulp-bump");
-
 var args = require("../args");
-var config = require("../config");
 
 gulp.task("prepare-release", (cb) => {
 	return runSeq(

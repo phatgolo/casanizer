@@ -5,7 +5,8 @@ var config = require("../config");
 
 gulp.task("build", (cb) => {
 	return runSeq(
-		["scripts"],
+		"compile:ts",
+		["compile:test"],
 		cb);
 });
 
@@ -25,7 +26,7 @@ gulp.task("rebuild", (cb) => {
 
 gulp.task("build:copy-dist", () => {
 	return gulp.src([
-			`${config.artifact.root}/**/*`,
-			`!${config.test.output}`])
+			`${config.destination.artifact}/**/*`,
+			`!${config.jsSpec.source.files}`])
 		.pipe(gulp.dest(config.output.root));
 });

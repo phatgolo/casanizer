@@ -3,25 +3,55 @@ var fs = require("fs");
 var pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 var srcRoot = "src";
 var artifactRoot = "_artifact";
+var distributionRoot = "dist";
 const tsdMainFile = "typings/tsd.d.ts";
+const moduleSystem = "commonjs";
 
 module.exports = {
-	output: {
-		root: "dist",
+	destinations: {
+		dist: distributionRoot,
+		artifact: artifactRoot,
 	},
-	src: {
-		root: srcRoot,
-		ts: `${srcRoot}/**/*.ts`,
-		tsd: tsdMainFile
+	ts: {
+		source: {
+			root: srcRoot,
+			files: `${srcRoot}/**/*.ts`,
+		},
+		destination: {
+			root: artifactRoot,
+			commonjs: `${artifactRoot}/commonjs`
+		}
 	},
-	artifact: {
-		root: artifactRoot,
-		commonjs: `${artifactRoot}/commonjs`
+	tsSpecs: {
+		source: {
+			root: srcRoot,
+			files: `${srcRoot}/**/*.spec.ts`,
+		},
+		destination: {
+			root: artifactRoot,
+			commonjs: `${artifactRoot}/commonjs`
+		}
 	},
-	test: {
-		files: `${srcRoot}/**/*.spec.{ts,d.ts}`,
-		output: `${artifactRoot}/**/*.spec.js`
+	tsd: {
+		source: {
+			files: tsdMainFile
+		}
 	},
-	doc: "./doc",
+	js: {
+		source: {
+			root: artifactRoot,
+			files: `${artifactRoot}/**/*.js`
+		},
+		destination: {
+			root: distributionRoot,
+			commonjs: `${distributionRoot}/commonjs`
+		}
+	},
+	jsSpec: {
+		source: {
+			root: artifactRoot,
+			files: `${artifactRoot}/**/*.spec.js`
+		}
+	},	
 	packageName: pkg.name
 };

@@ -12,9 +12,9 @@ gulp.task("clean", (cb) => {
 });
 
 gulp.task("clean:dist", () => {
-	return del(config.output.root)
+	return del(config.destinations.dist)
 });
 
 gulp.task("clean:artifact", () => {
-	return del(config.artifact.root)
+	return del(config.destinations.artifact)
 });

@@ -5,7 +5,7 @@ var stylish = require("gulp-tslint-stylish");
 var config = require("../config");
 
 gulp.task("lint", () => {
-	return gulp.src([config.src.ts])
+	return gulp.src([config.ts.source.files])
 		.pipe(tslint())
 		.pipe(tslint.report(stylish, {
 			emitError: false,

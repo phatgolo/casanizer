@@ -20,24 +20,27 @@ var tsProject = tsc.createProject("tsconfig.json", {
 	typescript: typescript
 });
 
-gulp.task("test", ["compile:test"], (cb) => {
-	return runSeq(["run:test"], cb);
+gulp.task("test", ["lint"], (cb) => {
+	return runSeq(
+		"compile:test",
+		["run:test"],
+	cb);
 });
 
 gulp.task("run:test", () => {
-	gulp.src(config.test.output)
+	gulp.src(config.jsSpec.source.files)
 	.pipe(jasmine({
 		reporter: new SpecReporter()
 	}));
 });
 
 gulp.task("compile:test", () => {
-	var tsResult = gulp.src([config.src.tsd, config.test.files])
+	var tsResult = gulp.src([config.tsd.source.files, config.tsSpecs.source.files])
 		.pipe(plumber())
 		.pipe(tsc(tsProject));
 
 	return merge([
 		tsResult.js
-			.pipe(gulp.dest(config.artifact.commonjs))
+			.pipe(gulp.dest(config.tsSpecs.destination.commonjs))
 	]);
 });
