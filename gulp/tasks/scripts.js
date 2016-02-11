@@ -13,7 +13,7 @@ var config = require("../config");
 
 gulp.task("scripts", (cb) => {
 	return runSeq(
-		["compile:ts"/*, "compile:dts"*/],
+		["compile:ts"],
 		cb);
 });
 
@@ -27,13 +27,11 @@ gulp.task("compile:ts", () => {
 	const tsProject = getTscOptions();
 
 	const tsResult = gulp.src([config.src.tsd, config.src.ts, `!${config.test.files}`])
-	// .pipe(plumber())
-		.pipe(gulpdebug({ title: "ts1:" }))
+		.pipe(plumber())
 		.pipe(tsc(tsProject));
 
 	return merge([
 		tsResult.js
-			.pipe(gulpdebug({ title: "ts2:" }))
 			.pipe(gulp.dest(config.artifact.commonjs)),
 	]);
 });
