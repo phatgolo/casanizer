@@ -1,0 +1,64 @@
+{
+	"name": "casanizer",
+	"version": "0.1.0",
+	"description": "",
+	"license": "",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/phatgolo/casanizer.git"
+	},
+	"author": "Torbjörn Allard <torbjorn.allard@gmail.com>",
+	"keywords": [
+		"kebabCase",
+		"pascalCase",
+		"camelCase",
+		"snakeCase"
+	],
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"test": "gulp test"
+	},
+	"dependencies": {
+		"lodash": "^4.3.0"
+	},
+	"devDependencies": {
+		"conventional-changelog": "^1.0.1",
+		"del": "^2.2.0",
+		"dts-generator": "^1.6.3",
+		"gulp": "^3.9.0",
+		"gulp-bump": "^1.0.0",
+		"gulp-help": "^1.6.0",
+		"gulp-inject": "3.0.0",
+		"gulp-jasmine": "^2.0.1",
+		"gulp-plumber": "^1.1.0",
+		"gulp-sequence": "0.4.1",
+		"gulp-sourcemaps": "^1.6.0",
+		"gulp-tsconfig-files": "0.0.2",
+		"gulp-tslint": "^4.3.1",
+		"gulp-tslint-stylish": "^1.1.1",
+		"gulp-typescript": "^2.11.0",
+		"gulp-util": "^3.0.7",
+		"jasmine": "^2.3.1",
+		"jasmine-core": "^2.4.1",
+		"jasmine-spec-reporter": "^2.4.0",
+		"karma": "^0.13.19",
+		"karma-jasmine": "^0.3.7",
+		"karma-mocha-reporter": "^1.1.5",
+		"karma-phantomjs-launcher": "^1.0.0",
+		"merge2": "^1.0.1",
+		"mocha": "^2.4.5",
+		"path": "^0.12.7",
+		"phantomjs-prebuilt": "^2.1.4",
+		"require-dir": "^0.3.0",
+		"run-sequence": "^1.1.5",
+		"tsd": "^0.6.5",
+		"tslint": "^3.3.0",
+		"typescript": "^1.7.5",
+		"yargs": "^3.32.0"
+	},
+	"engines": {
+		"node": ">=0.12.0"
+	}
+}
