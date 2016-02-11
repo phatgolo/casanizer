@@ -1,6 +1,6 @@
 {
 	"name": "casanizer",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A package for working with different types of casing, like camel case, kebab case, pascal case, snake case and more.",
 	"license": "MIT",
 	"repository": {
@@ -17,6 +17,7 @@
 	"files": [
 		"dist"
 	],
+	"main": "dist/commonjs/casanizer.js",
 	"scripts": {
 		"test": "gulp test"
 	},
