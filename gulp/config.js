@@ -20,7 +20,6 @@ module.exports = {
 	},
 	test: {
 		files: `${srcRoot}/**/*.spec.{ts,d.ts}`,
-		karmaConfig: "karma.conf.js",
 		output: `${artifactRoot}/**/*.spec.js`
 	},
 	doc: "./doc",

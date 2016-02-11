@@ -1,7 +1,7 @@
 {
 	"name": "casanizer",
-	"version": "0.1.2",
-	"description": "A package for working with different types of casing, like camel case, kebab case, pascal case, snake case and more.",
+	"version": "1.0.0",
+	"description": "A node package for working with different types of casing, like camel case, kebab case, pascal case, snake case and more.",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

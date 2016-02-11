@@ -11,7 +11,7 @@ gulp.task("build", (cb) => {
 
 gulp.task("build:rel", (cb) => {
 	return runSeq(
-		["scripts"],
+		["scripts", "compile:test"],
 		"build:copy-dist",
 		cb);
 });
@@ -26,6 +26,6 @@ gulp.task("rebuild", (cb) => {
 gulp.task("build:copy-dist", () => {
 	return gulp.src([
 			`${config.artifact.root}/**/*`,
-			`!${config.test.output}/**/*`])
+			`!${config.test.output}`])
 		.pipe(gulp.dest(config.output.root));
 });

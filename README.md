@@ -7,8 +7,7 @@ It's not uncommon that you need a few different case variations of your file-nam
 ## How to install
 
 ``` bash
-> npm install casanizer --save-dev
-
+$ npm install casanizer --save-dev
 ```
 ## How to use
 
