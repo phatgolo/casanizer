@@ -1,52 +1,55 @@
 var _ = require("lodash");
-var Casanizer = (function () {
-    function Casanizer(name) {
-        if (name === void 0) { name = ""; }
-        this.name = name;
+var Caser = (function () {
+    function Caser(value) {
+        if (value === void 0) { value = ""; }
+        this.value = value;
     }
-    Casanizer.prototype.toCamel = function () {
-        return _.camelCase(this.name);
+    Caser.prototype.toCamel = function () {
+        return _.camelCase(this.value);
     };
     ;
-    Casanizer.prototype.toKebab = function () {
-        return _.kebabCase(this.name);
+    Caser.prototype.toKebab = function () {
+        return _.kebabCase(this.value);
     };
     ;
-    Casanizer.prototype.toSnake = function () {
-        return _.snakeCase(this.name);
+    Caser.prototype.toSnake = function () {
+        return _.snakeCase(this.value);
     };
     ;
-    Casanizer.prototype.toPascal = function () {
+    Caser.prototype.toPascal = function () {
         return this.toFirstUpper(this.toCamel());
     };
     ;
-    Casanizer.prototype.toDot = function () {
+    Caser.prototype.toDot = function () {
         return _.replace(this.toKebab(), "-", ".");
     };
     ;
-    Casanizer.prototype.toPath = function () {
+    Caser.prototype.toPath = function () {
         return _.replace(this.toKebab(), "-", "\\");
     };
     ;
-    Casanizer.prototype.toUri = function () {
+    Caser.prototype.toUri = function () {
         return _.replace(this.toKebab(), "-", "/");
     };
     ;
-    Casanizer.prototype.toBasicLatinWords = function () {
+    Caser.prototype.toBasicLatinWords = function () {
         return this.toKebab().split("-");
     };
     ;
-    Casanizer.prototype.toSentence = function () {
+    Caser.prototype.toSentence = function () {
         return this.toBasicLatinWords().join(" ");
     };
     ;
-    Casanizer.prototype.toRealSentence = function () {
+    Caser.prototype.toRealSentence = function () {
         return this.toFirstUpper(this.toSentence());
     };
     ;
-    Casanizer.prototype.case = function (name) {
+    Caser.prototype.toString = function () {
+        return this.value;
+    };
+    Caser.prototype.cases = function (name) {
         if (!_.isUndefined(name)) {
-            this.name = name;
+            this.value = name;
         }
         return {
             camel: this.toCamel(),
@@ -62,13 +65,13 @@ var Casanizer = (function () {
         };
     };
     ;
-    Casanizer.prototype.toFirstUpper = function (name) {
-        if (_.isUndefined(name) || name.length < 2) {
+    Caser.prototype.toFirstUpper = function (value) {
+        if (_.isUndefined(value) || value.length < 2) {
             return "";
         }
-        return name[0].toUpperCase() + name.slice(1).trim();
+        return value[0].toUpperCase() + value.slice(1).trim();
     };
     ;
-    return Casanizer;
+    return Caser;
 })();
-exports.Casanizer = Casanizer;
+exports.Caser = Caser;
